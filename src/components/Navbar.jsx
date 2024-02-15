@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
   AiOutlineMenuFold,
@@ -37,13 +38,15 @@ const Navbar = () => {
         ></input>
       </div>
       {/*Sipari Buttonu*/}
-      <button
-        type="button"
-        onClick={() => navigate("/order")}
-        className="flex focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-      >
-        <BsFillCartFill size={20} className="mr-2"></BsFillCartFill>Siparişi Ver
-      </button>
+      <Link to="/order">
+        <button
+          type="button"
+          className="flex focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+        >
+          <BsFillCartFill size={20} className="mr-2"></BsFillCartFill>Siparişi
+          Ver
+        </button>
+      </Link>
       {/*Mobile Menu */}
       {nav ? (
         <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
