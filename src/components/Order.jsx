@@ -8,16 +8,12 @@ const Order = () => {
 
   return (
     <div className="w-full h-screen flex flex-col">
-      {/* Main Title Section */}
-      <div
-        className="bg-red-500 text-white flex flex-col justify-center items-center w-full"
-        style={{ height: "20vh" }}
-      >
-        <h1 className="text-4xl mb-2">Teknolojik Yemekler</h1>
-        <div className="flex flex-row w-full justify-around">
-          <h2 className="text-xl">Başlık 1</h2>
-          <h2 className="text-xl">Başlık 2</h2>
-          <h2 className="text-xl">Başlık 3</h2>
+      <div className="bg-[#CE2829] text-white  flex flex-col items-center w-full h-1/4">
+        <h1 className="text-4xl  mt-5">Teknolojik Yemekler</h1>
+        <div className="w-1/2 flex flex-row justify-start  pt-5 ml-5">
+          <h2 className="text-lg">Anasayfa -</h2>
+          <h2 className="text-lg">Seçenekler -</h2>
+          <h2 className="text-lg">Sipariş Oluştur </h2>
         </div>
       </div>
       {/* Pizza Order Section */}
