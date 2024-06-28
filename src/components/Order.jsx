@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
+import IngredientsForm from "./IngredientsForm";
 
 const Order = () => {
   const handleSubmit = (event) => {
@@ -7,8 +8,8 @@ const Order = () => {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col">
-      <div className="bg-[#CE2829] text-white  flex flex-col items-center w-full h-1/4">
+    <div className="min-w-full h-screen  flex flex-col">
+      <div className=" bg-[#CE2829] text-white  flex flex-col items-center w-full">
         <h1 className="text-4xl  mt-5">Teknolojik Yemekler</h1>
         <div className="w-1/2 flex flex-row justify-start  pt-5 ml-5">
           <h2 className="text-lg">Anasayfa -</h2>
@@ -16,13 +17,18 @@ const Order = () => {
           <h2 className="text-lg">Sipariş Oluştur </h2>
         </div>
       </div>
-      {/* Pizza Order Section */}
-      <div className="flex flex-col p-4">
-        <div className="flex flex-row mb-4">
-          <h1 className="text-3xl">Position Absolute Acı Pizza</h1>
-          <p className="ml-2">85.50t</p>
-          <span className="ml-2">4.9</span>
-          <span className="ml-2">(200)</span>
+      <div className="flex flex-col w-4/12 justify-center content-center mx-auto h-full ">
+        {/* Pizza Order Section */}
+
+        <div className="flex flex-col content-center mt-6">
+          <h1 className="text-xl mb-4 font-bold">
+            Position Absolute Acı Pizza
+          </h1>
+          <div className="flex flex-row justify-between">
+            <p className="font-extrabold text-2xl">85.50₺</p>
+            <span className="text-gray-400">4.6</span>
+            <span className="text-gray-400">(200)</span>
+          </div>
         </div>
         <div className="mb-4">
           <p>
@@ -33,11 +39,10 @@ const Order = () => {
           </p>
         </div>
         <Form onSubmit={handleSubmit}>
-          <div>
-            <h2>Büyük seç</h2>
-
+          <div className="w-full h-full grid grid-cols-2">
             <FormGroup className="flex flex-col">
               <div className="mb-2">
+                <h2 className="mb-4">Boyut Seç</h2>
                 <Input name="hamur" type="radio" value="büyük" id="büyük" />
                 <Label for="büyük" className="ml-2">
                   Büyük
@@ -56,6 +61,18 @@ const Order = () => {
                 </Label>
               </div>
             </FormGroup>
+            <FormGroup>
+              <Label for="hamur">Hamur Kalınlığı Seç</Label>
+              <Input id="hamurt" name="select" type="select" bsSize="lg">
+                <option>Kalın</option>
+                <option>İnce</option>
+                <option>Orta</option>
+                <option>İtalyan kesim</option>
+              </Input>
+            </FormGroup>
+            <div>
+              <IngredientsForm />
+            </div>
           </div>
         </Form>
       </div>
