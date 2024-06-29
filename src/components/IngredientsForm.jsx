@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { FormGroup, Label, Input, Row, Col } from "reactstrap";
 
 const IngredientsForm = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
@@ -39,26 +39,29 @@ const IngredientsForm = () => {
   };
 
   return (
-    <div className="w-full mx-auto flex flex-col">
-      <h1 className="text-lg">Ek Malzemeler</h1>
-      <div className="w-full grid sm:grid-cols-3 gap-x-8 ">
-        {ingredients.map((ingredient) => (
-          <FormGroup key={ingredient.id} className="flex flex-col">
-            <Label check className="">
-              <Input
-                type="checkbox"
-                name={ingredient.name}
-                value={ingredient.id}
-                checked={selectedIngredients.includes(ingredient.id)}
-                onChange={handleCheckboxChange}
-              />
-              <span className="ml-2">{ingredient.name}</span>
-            </Label>
-          </FormGroup>
-        ))}
+    <div className="w-full mx-auto mt-4">
+      <h2 className="text-lg font-bold mb-4">Ek Malzemeler</h2>
+      <Row>
+        <Col>
+          {ingredients.map((ingredient) => (
+            <FormGroup key={ingredient.id}>
+              <Label check>
+                <Input
+                  type="checkbox"
+                  name={ingredient.name}
+                  value={ingredient.id}
+                  checked={selectedIngredients.includes(String(ingredient.id))}
+                  onChange={handleCheckboxChange}
+                  className="mr-2"
+                />
+                {ingredient.name}
+              </Label>
+            </FormGroup>
+          ))}
+        </Col>
+      </Row>
 
-        {errorMessage && <p className="text-sm text-red-600">{errorMessage}</p>}
-      </div>
+      {errorMessage && <p className="text-red-600 mt-2">{errorMessage}</p>}
     </div>
   );
 };
