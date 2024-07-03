@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const OrderingForm = ({
   orderNote,
@@ -30,8 +31,10 @@ const OrderingForm = ({
     try {
       const response = await axios.post("https://reqres.in/api/pizza", payload);
       console.log("Order submitted successfully:", response.data);
+      toast.success("Siparişiniz Alınmıştır!");
     } catch (error) {
       console.error("There was an error submitting the order:", error);
+      toast.error("Sipariş Verirken Bir hata Oluştu");
     }
   };
 
@@ -83,8 +86,13 @@ const OrderingForm = ({
             <span>$45.00</span>
           </div>
           <button
-            className="bg-yellow-400 text-black w-full py-3 mt-6 rounded-lg hover:bg-yellow-500 transition duration-300"
+            className={
+              selectedIngredients.length === 0
+                ? "bg-gray-300 text-white w-full  py-3 mt-6  rounded-lg cursor-not-allowed"
+                : "bg-yellow-400 text-black w-full py-3 mt-6 rounded-lg hover:bg-yellow-500 transition duration-300"
+            }
             onClick={handleSubmit}
+            disabled={selectedIngredients.length === 0}
           >
             Siparişi Ver
           </button>

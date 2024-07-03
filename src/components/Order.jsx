@@ -7,9 +7,15 @@ const Order = () => {
   const [orderNote, setOrderNote] = useState("");
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [orderCount, setOrderCount] = useState(0);
+  const [formError, setFormError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (selectedIngredients.length === 0) {
+      setFormError("En az bir malzeme seçmelisiniz");
+      return;
+    }
+    setFormOrder("");
   };
 
   return (
@@ -93,6 +99,9 @@ const Order = () => {
               />
             </div>
           </div>
+          {formError && (
+            <p className="text-red-500 text-center  mt-8">{formError}</p>
+          )}
         </Form>
       </div>
     </div>

@@ -4,6 +4,8 @@ import workintech from "/workintech.svg";
 import "./App.css";
 import Hero from "./components/Hero";
 import Order from "./components/Order";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <ToastContainer></ToastContainer>
     </>
   );
 }
