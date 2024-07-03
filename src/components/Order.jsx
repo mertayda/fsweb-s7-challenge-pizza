@@ -9,7 +9,7 @@ const Order = () => {
   };
 
   return (
-    <div className="min-w-full min-h-screen flex flex-col">
+    <div className="w-screen min-h-screen flex flex-col">
       <div className="bg-[#CE2829] text-white flex flex-col items-center w-full p-4">
         <h1 className="text-2xl sm:text-4xl mt-5">Teknolojik Yemekler</h1>
         <div className="w-full sm:w-1/2 flex flex-row flex-wrap justify-center sm:justify-start pt-5 mx-5 space-x-2 sm:space-x-4">
