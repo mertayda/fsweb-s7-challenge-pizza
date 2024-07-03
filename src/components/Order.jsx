@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import IngredientsForm from "./IngredientsForm";
 import OrderingForm from "./OrderingForm";
 
 const Order = () => {
+  const [orderNote, setOrderNote] = useState("");
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [orderCount, setOrderCount] = useState(0);
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -74,8 +78,19 @@ const Order = () => {
               </Input>
             </FormGroup>
             <div className="w-full flex flex-col">
-              <IngredientsForm className="col-span-full" />
-              <OrderingForm className="col-span-full" />
+              <IngredientsForm
+                selectedIngredients={selectedIngredients}
+                setSelectedIngredients={setSelectedIngredients}
+                className="col-span-full"
+              />
+              <OrderingForm
+                orderCount={orderCount}
+                setOrderCount={setOrderCount}
+                setOrderNote={setOrderNote}
+                orderNote={orderNote}
+                selectedIngredients={selectedIngredients}
+                className="col-span-full"
+              />
             </div>
           </div>
         </Form>

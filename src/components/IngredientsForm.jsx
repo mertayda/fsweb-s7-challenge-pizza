@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { FormGroup, Label, Input, Row, Col } from "reactstrap";
 
-const IngredientsForm = () => {
-  const [selectedIngredients, setSelectedIngredients] = useState([]);
+const IngredientsForm = ({ selectedIngredients, setSelectedIngredients }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const ingredients = [

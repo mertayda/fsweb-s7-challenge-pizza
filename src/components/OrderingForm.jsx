@@ -1,22 +1,38 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-const OrderingForm = () => {
-  const [orderCount, setOrderCount] = useState(0);
-
+const OrderingForm = ({
+  orderNote,
+  setOrderNote,
+  orderCount,
+  setOrderCount,
+  selectedIngredients,
+}) => {
   const handleIncrement = () => {
-    setOrderCount((previous) => previous + 1);
+    setOrderCount((prevCount) => prevCount + 1);
   };
 
   const handleDecrement = () => {
     setOrderCount((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
   };
 
-  const OrderCard = () => {
-    const orderItems = [
-      { name: "Item 1", price: 10 },
-      { name: "Item 2", price: 15 },
-      { name: "Item 3", price: 20 },
-    ];
+  const handleChange = (event) => {
+    setOrderNote(event.target.value);
+  };
+
+  const handleSubmit = async () => {
+    const payload = {
+      orderCount,
+      orderNote,
+      selectedIngredients,
+    };
+
+    try {
+      const response = await axios.post("https://reqres.in/api/pizza", payload);
+      console.log("Order submitted successfully:", response.data);
+    } catch (error) {
+      console.error("There was an error submitting the order:", error);
+    }
   };
 
   return (
@@ -26,9 +42,11 @@ const OrderingForm = () => {
           Sipariş Notu
         </label>
         <textarea
-          className="lg:w-96 w-full lg:h-40 h-32 p-2 border rounded shadow-sm"
+          className="lg:w-100 w-full lg:h-40 h-32 p-2 border rounded shadow-sm"
           id="orderNote"
           placeholder="Eklemek İstediğiniz Sipariş Notunu Giriniz"
+          value={orderNote}
+          onChange={handleChange}
         ></textarea>
       </div>
 
@@ -64,7 +82,10 @@ const OrderingForm = () => {
             <span className="text-red-500">Total</span>
             <span>$45.00</span>
           </div>
-          <button className="bg-yellow-400 text-black w-full py-3 mt-6 rounded-lg hover:bg-yellow-500 transition duration-300">
+          <button
+            className="bg-yellow-400 text-black w-full py-3 mt-6 rounded-lg hover:bg-yellow-500 transition duration-300"
+            onClick={handleSubmit}
+          >
             Siparişi Ver
           </button>
         </div>
