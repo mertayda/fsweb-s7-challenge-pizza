@@ -38,7 +38,7 @@ const IngredientsForm = ({ selectedIngredients, setSelectedIngredients }) => {
   };
 
   return (
-    <div className="w-full mx-auto mt-4">
+    <div className="w-full mx-auto mt-4 font-roboto-condensed">
       <h2 className="text-lg font-bold mb-4">Ek Malzemeler</h2>
       <Row>
         <Col>

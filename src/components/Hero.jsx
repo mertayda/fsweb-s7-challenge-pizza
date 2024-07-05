@@ -20,11 +20,11 @@ const Hero = () => {
           Teknolojik Lezzetler
         </h1>
         <div className="flex flex-col text-center justify-center items-center mt-6 ">
-          <h1 className="text-xl sm:text-2xl lg:text-4xl font-quattrocento italic">
+          <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
             KOD ACIKTIRIR
           </h1>
 
-          <h1 className="text-xl sm:text-2xl lg:text-4xl font-quattrocento italic">
+          <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
             PİZZA DOYURUR
           </h1>
           <div className="mt-6">

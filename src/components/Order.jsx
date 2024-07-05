@@ -21,18 +21,24 @@ const Order = () => {
   return (
     <div className="w-screen min-h-screen flex flex-col">
       <div className="bg-[#CE2829] text-white flex flex-col items-center w-full p-4">
-        <h1 className="text-2xl sm:text-4xl mt-5">Teknolojik Yemekler</h1>
-        <div className="w-full sm:w-1/2 flex flex-row flex-wrap justify-center sm:justify-start pt-5 mx-5 space-x-2 sm:space-x-4">
-          <h2 className="text-base sm:text-lg">Anasayfa -</h2>
-          <h2 className="text-base sm:text-lg">Seçenekler -</h2>
-          <h2 className="text-base sm:text-lg">Sipariş Oluştur</h2>
+        <h1 className="text-2xl sm:text-5xl mt-5 font-roboto-condensed font-semibold">
+          Teknolojik Yemekler
+        </h1>
+        <div className="w-full sm:w-1/2 flex flex-row flex-wrap justify-center sm:justify-start pt-5 mx-2 space-x-1 sm:space-x-2 font-roboto-condensed">
+          <h2 className="text-base font-light sm:text-lg">
+            Anasayfa <span className="mx-auto">-</span>
+          </h2>
+          <h2 className="text-base sm:text-lg font-light ">
+            Seçenekler <span className="mx-auto">-</span>
+          </h2>
+          <h2 className="text-base sm:text-lg font-light ">Sipariş Oluştur</h2>
         </div>
       </div>
-      <div className="flex flex-col w-full md:w-8/12 lg:w-6/12 xl:w-4/12 justify-center mx-auto my-4 p-4">
+      <div className="flex flex-col w-full md:w-8/12 lg:w-6/12 xl:w-4/12 justify-center mx-auto my-4 p-4 font-roboto-condensed">
         {/* Pizza Order Section */}
 
         <div className="w-full flex flex-col content-center mt-6 pt-8">
-          <h1 className="text-lg sm:text-xl mb-4 font-bold">
+          <h1 className="text-lg sm:text-xl mb-4 font-bold ">
             Position Absolute Acı Pizza
           </h1>
           <div className="flex flex-row justify-between items-center">

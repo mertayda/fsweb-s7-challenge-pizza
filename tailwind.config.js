@@ -9,6 +9,7 @@ export default {
       fontFamily: {
        'roboto-condensed': ['"Roboto Condensed"', 'sans-serif'],
        'quattrocento': ['"Quattrocento"', 'serif'],
+       "satisfty": ['"Satisfy"', 'cursive'],
       },
     },
   },

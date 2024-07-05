@@ -39,7 +39,7 @@ const OrderingForm = ({
   };
 
   return (
-    <div className="w-full lg:w-[600px] flex flex-col h-full mt-5 px-4">
+    <div className="w-full lg:w-[600px] flex flex-col h-full mt-5 px-4 font-roboto-condensed ">
       <div className="flex flex-col w-full mb-5">
         <label className="text-lg font-bold mb-4" htmlFor="orderNote">
           Sipariş Notu
@@ -56,7 +56,7 @@ const OrderingForm = ({
       <div className="flex flex-col sm:flex-row w-full gap-4 h-full">
         <div className="flex items-center h-fit justify-center sm:justify-start">
           <button
-            className="bg-yellow-400 text-black py-2 px-3 border border-gray-300 rounded"
+            className="bg-[#FDC913] text-black py-2 px-3 border border-gray-300 rounded"
             onClick={handleDecrement}
           >
             -
@@ -65,7 +65,7 @@ const OrderingForm = ({
             {orderCount}
           </span>
           <button
-            className="bg-yellow-400 text-black py-2 px-3 border border-gray-300 rounded"
+            className="bg-[#FDC913] text-black py-2 px-3 border border-gray-300 rounded"
             onClick={handleIncrement}
           >
             +
@@ -78,18 +78,18 @@ const OrderingForm = ({
           <div className="space-y-4 mb-6">
             <div className="flex justify-between items-center">
               <span className="text-gray-700">Seçimler</span>
-              <span className="text-gray-900 font-medium">$10.00</span>
+              <span className="text-gray-900 font-medium">10.00₺</span>
             </div>
           </div>
           <div className="flex justify-between items-center font-bold text-lg border-t pt-4">
-            <span className="text-red-500">Total</span>
-            <span>$45.00</span>
+            <span className="text-red-500">Toplam</span>
+            <span>85.50₺</span>
           </div>
           <button
             className={
               selectedIngredients.length === 0
                 ? "bg-gray-300 text-white w-full  py-3 mt-6  rounded-lg cursor-not-allowed"
-                : "bg-yellow-400 text-black w-full py-3 mt-6 rounded-lg hover:bg-yellow-500 transition duration-300"
+                : "bg-[#FDC913] text-black w-full py-3 mt-6 rounded-lg hover:bg-yellow-500 transition duration-300"
             }
             onClick={handleSubmit}
             disabled={selectedIngredients.length === 0}
