@@ -29,7 +29,7 @@ const Hero = () => {
           </h1>
           <div className="mt-6">
             <Link to="/order">
-              <Button block color="warning" size="lg">
+              <Button block color="warning" size="lg" data-cy="order">
                 ACIKTIM
               </Button>
             </Link>

@@ -53,7 +53,7 @@ const OrderingForm = ({
         ></textarea>
       </div>
 
-      <div className="flex flex-col sm:flex-row w-full gap-4 h-full">
+      <div className="flex flex-col lg:flex-row w-full gap-4 h-full">
         <div className="flex items-center h-fit justify-center sm:justify-start">
           <button
             className="bg-[#FDC913] text-black py-2 px-3 border border-gray-300 rounded"
@@ -93,6 +93,7 @@ const OrderingForm = ({
             }
             onClick={handleSubmit}
             disabled={selectedIngredients.length === 0}
+            data-cy="submit-button"
           >
             Siparişi Ver
           </button>

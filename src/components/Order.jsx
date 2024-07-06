@@ -15,7 +15,7 @@ const Order = () => {
       setFormError("En az bir malzeme seçmelisiniz");
       return;
     }
-    setFormOrder("");
+    setFormError("");
   };
 
   return (
@@ -81,12 +81,18 @@ const Order = () => {
               </div>
             </FormGroup>
             <FormGroup className="col-span-full">
-              <Label for="hamurt">Hamur Kalınlığı Seç</Label>
-              <Input id="hamurt" name="select" type="select" bsSize="lg">
-                <option>Kalın</option>
-                <option>İnce</option>
-                <option>Orta</option>
-                <option>İtalyan kesim</option>
+              <Label for="dough">Hamur Kalınlığı Seç</Label>
+              <Input
+                id="dough"
+                name="select"
+                type="select"
+                bsSize="lg"
+                data-cy="select-input"
+              >
+                <option value="">Kalın</option>
+                <option value="option1">İnce</option>
+                <option value="option2">Orta</option>
+                <option value="option3">İtalyan kesim</option>
               </Input>
             </FormGroup>
             <div className="w-full flex flex-col">
