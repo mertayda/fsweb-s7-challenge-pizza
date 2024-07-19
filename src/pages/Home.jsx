@@ -1,7 +1,7 @@
 import React from "react";
 import image from "../../Assets/mile1-assets/home-banner.png";
 import { Link } from "react-router-dom";
-const Header = () => {
+const Home = () => {
   return (
     <div
       className="w-full h-screen flex flex-col text-white"
@@ -44,4 +44,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Home;
