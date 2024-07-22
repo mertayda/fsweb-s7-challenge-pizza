@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "../../Assets/mile1-assets/home-banner.png";
 import { Link } from "react-router-dom";
 import Category from "../components/UI/category/Category";
 import featureImg01 from "../../Assets/mile1-assets/images/service-01.png";
 import featureImg02 from "../../Assets/mile1-assets/images/service-02.png";
 import featureImg03 from "../../Assets/mile1-assets/images/service-03.png";
+import Icon from "../../Assets/mile2-aseets/icons/1.svg";
+import Icon2 from "../../Assets/mile2-aseets/icons/2.svg";
+import Icon3 from "../../Assets/mile2-aseets/icons/3.svg";
+import Icon4 from "../../Assets/mile2-aseets/icons/4.svg";
+import Icon5 from "../../Assets/mile2-aseets/icons/5.svg";
+import products from "../assets/data/products";
 
 const featureData = [
   {
@@ -12,20 +18,21 @@ const featureData = [
     imgUrl: featureImg01,
     desc: "Siparişiniz, sıcak ve taze olarak kapınıza gelsin diye hızlı bir şekilde hazırlanıyor..",
   },
-
   {
     title: "Süper Lezzet",
     imgUrl: featureImg02,
     desc: "Yerel tedarikçilerden aldığımız en taze malzemelerle oluşturduğumuz pizzalar.",
   },
   {
-    title: "Kolay Sipariş",
+    title: "Kolay Sipariş",
     imgUrl: featureImg03,
     desc: "Her pizza, özel tariflerimizle hazırlanıyor; sizi sıradanlıktan kurtarıyor!",
   },
 ];
 
 const Home = () => {
+  const [allProducts, setAllProducts] = useState([]);
+
   return (
     <>
       <div
@@ -38,18 +45,17 @@ const Home = () => {
           backgroundColor: "#CE2829",
         }}
       >
-        <div className="flex flex-col items-center justify-center content-center mt-8 bg-opacity-90 p-5 rounded-lg">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl mt-4 font-quattrocento font-semibold text-center">
+        <div className="flex flex-col items-center justify-center bg-opacity-90 p-5 rounded-lg mt-8">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-quattrocento font-semibold text-center">
             Teknolojik Lezzetler
           </h1>
-          <div className="flex flex-col text-center justify-center items-center mt-6">
+          <div className="flex flex-col text-center mt-6">
             <span className="text-[#FDC913] text-3xl font-satisfty">
               Fırsatı Kaçırma
             </span>
             <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
               KOD ACIKTIRIR
             </h1>
-
             <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
               PİZZA DOYURUR
             </h1>
@@ -57,7 +63,7 @@ const Home = () => {
               <Link to="/order">
                 <button
                   type="button"
-                  className="py-2 px-8 fonmt-quattrocento inline-flex items-center gap-x-2 text-md font-semibold rounded-3xl border border-transparent bg-[#FDC913] text-black hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none"
+                  className="py-2 px-8 font-quattrocento inline-flex items-center gap-x-2 text-md font-semibold rounded-3xl border border-transparent bg-[#FDC913] text-black hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   ACIKTIM
                 </button>
@@ -66,18 +72,20 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Category></Category>
+
+      <Category />
+
       <section className="py-10">
-        <div className="container mx-auto">
+        <div className="container mx-auto font-quattrocento font-bold">
           <div className="text-center">
             <h5 className="text-red-600 mb-4">Ne Sunuyoruz?</h5>
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-2xl lg:text-3xl font-bold">
               Evde Dinlenin, Lezzeti Kapınıza Getirelim!
             </h2>
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-2xl lg:text-3xl font-bold">
               Acıktınız mı? <span className="text-red-600">Biz hallederiz</span>
             </h2>
-            <p className="mb-1 mt-4 text-gray-600">
+            <p className="mb-1 mt-4 text-gray-600 px-4 lg:px-0">
               Hayalinizdeki pizza, sadece bir tık uzağınızda! Her bir pizzamız,
               taze ve kaliteli malzemelerle, ustalıkla hazırlanıyor. Düşük
               kalorili diyet mi, klasik lezzetler mi yoksa yeni tatlar mı
@@ -85,18 +93,62 @@ const Home = () => {
               tanımlıyoruz!
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 mt-5 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 mt-5">
             {featureData.map((item, index) => (
-              <div key={index} className="mt-5 p-4 text-center  rounded-lg">
+              <div
+                key={index}
+                className="p-4 text-center bg-white rounded-lg shadow-md"
+              >
                 <img
                   src={item.imgUrl}
-                  alt="feature-img"
-                  className="w-1/4 mb-3 mx-auto"
+                  alt={item.title}
+                  className="w-24 h-24 mx-auto mb-3"
                 />
                 <h5 className="font-bold mb-3">{item.title}</h5>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-10">
+        <div className="container mx-auto">
+          <div className="text-center mb-6">
+            <h1 className="font-satisfty font-bold text-[#CE2829]">
+              En çok paketlenen menüler
+            </h1>
+            <h1 className="font-quattrocento">
+              Acıktıran Kodlara Doyuran Lezzetler
+            </h1>
+          </div>
+
+          <div className="flex flex-col items-center font-roboto-condensed font-bold">
+            <div className="flex flex-wrap justify-center gap-4 text-black mt-6 py-4  rounded-lg">
+              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
+                Hepsi
+              </button>
+              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
+                <img src={Icon} alt="Ramen" className="w-5 h-5 mr-2" />
+                Ramen
+              </button>
+              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
+                <img src={Icon2} alt="Burger" className="w-5 h-5 mr-2" />
+                Burger
+              </button>
+              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
+                <img src={Icon3} alt="French Fries" className="w-5 h-5 mr-2" />
+                French Fries
+              </button>
+              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
+                <img src={Icon4} alt="Fast Food" className="w-5 h-5 mr-2" />
+                Fast Food
+              </button>
+              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
+                <img src={Icon5} alt="Soft Drinks" className="w-5 h-5 mr-2" />
+                Soft Drinks
+              </button>
+            </div>
           </div>
         </div>
       </section>
