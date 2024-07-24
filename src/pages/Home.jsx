@@ -12,6 +12,7 @@ import Icon4 from "../../Assets/mile2-aseets/icons/4.svg";
 import Icon5 from "../../Assets/mile2-aseets/icons/5.svg";
 import products from "../assets/data/products";
 import ProductCard from "../../src/components/UI/productCard/ProductCard";
+import delivery from "../../src/assets/images/location.png";
 
 const featureData = [
   {
@@ -78,20 +79,20 @@ const Home = () => {
             Teknolojik Lezzetler
           </h1>
           <div className="flex flex-col text-center mt-6">
-            <span className="text-[#FDC913] text-3xl font-satisfy">
+            <span className="text-[#FDC913] text-3xl font-quattrocento">
               Fırsatı Kaçırma
             </span>
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfy">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
               KOD ACIKTIRIR
             </h1>
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfy">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
               PİZZA DOYURUR
             </h1>
             <div className="mt-6">
               <Link to="/order">
                 <button
                   type="button"
-                  className="py-2 px-8 font-quattrocento inline-flex items-center gap-x-2 text-md font-semibold rounded-3xl border border-transparent bg-[#FDC913] text-black hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none"
+                  className="py-2 px-8 font-satisfty inline-flex items-center gap-x-2 text-md font-semibold rounded-3xl border border-transparent bg-[#FDC913] text-black hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   ACIKTIM
                 </button>
@@ -108,7 +109,7 @@ const Home = () => {
           <div className="text-center">
             <h5 className="text-red-600 mb-4">Ne Sunuyoruz?</h5>
             <h2 className="text-2xl lg:text-3xl font-bold">
-              Evde Dinlenin, Lezzeti Kapınıza Getirelim!
+              Evde Dinlenirken, Lezzeti Kapınıza Getirelim!
             </h2>
             <h2 className="text-2xl lg:text-3xl font-bold">
               Acıktınız mı? <span className="text-red-600">Biz hallederiz</span>
@@ -206,6 +207,75 @@ const Home = () => {
             {allProducts.map((item) => (
               <ProductCard key={item.id} item={item} />
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-10 bg-gray-100">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <img
+              src={delivery}
+              className="object-cover w-full h-full rounded-lg shadow-lg"
+              alt="Delivery Image"
+            />
+          </div>
+          <div className="flex flex-col justify-center space-y-6">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800 mb-4">
+                Neden Teknolojik Lezzetler
+              </h1>
+              <p className="text-gray-600">
+                Teknolojik Lezzetler olarak, her zaman en taze ve en kaliteli
+                malzemeleri kullanıyoruz. Modern ekipmanlarımız sayesinde,
+                malzemelerimiz bozulmadan ve lezzetini kaybetmeden yemeklerinize
+                ulaşıyor. Böylece siz de her zaman taze ve lezzetli yemeklerin
+                tadını çıkarabilirsiniz.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
+                <div>
+                  <p className="text-lg font-semibold text-gray-800">
+                    Taze ve Kaliteli Ürünler
+                  </p>
+                  <p className="text-gray-600">
+                    "Her lokmada tazelik patlaması! Doğadan sofrana en kısa
+                    yoldan gelen, taptaze malzemelerle hazırlanan
+                    lezzetlerimizle mideni şenlendir. Hamburgerimizdeki köfteler
+                    bile kendi bahçemizden!"
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
+                <div>
+                  <p className="text-lg font-semibold text-gray-800">
+                    Canlı Müşteri Desteği
+                  </p>
+                  <p className="text-gray-600">
+                    Her zaman yanınızdayız! Siparişlerinizle ilgili herhangi bir
+                    sorunuz veya öneriniz olduğunda, 7/24 ulaşabileceğiniz
+                    müşteri destek ekibimiz size yardımcı olmaktan mutluluk
+                    duyar.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
+                <div>
+                  <p className="text-lg font-semibold text-gray-800">
+                    Heryerden Sipariş Verin
+                  </p>
+                  <p className="text-gray-600">
+                    İş yerinde, evde veya yolda... İstediğiniz her yerden
+                    siparişinizi verebilirsiniz. Mobil uygulamamız veya web
+                    sitemiz üzerinden kolayca siparişinizi oluşturun ve
+                    kapınızda teslim alın.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

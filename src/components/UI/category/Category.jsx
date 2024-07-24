@@ -17,7 +17,7 @@ const Category = () => {
   ];
 
   return (
-    <div className="bg-[#f5f5dc] py-12 font-roboto-condensed">
+    <div className="bg-[#f5f5dc] py-12 font-satisfty">
       <div className="container mx-auto flex justify-center flex-wrap">
         {items.map(({ icon, label }) => (
           <div
