@@ -10,10 +10,10 @@ const Category = () => {
   const items = [
     { icon: Icon, label: "Ramen" },
     { icon: Icon2, label: "Pizza" },
-    { icon: Icon3, label: "Hamburger" },
-    { icon: Icon4, label: " Kızarmatalar" },
+    { icon: Icon3, label: "Burger" },
+    { icon: Icon4, label: " French Fries" },
     { icon: Icon5, label: "Fast Food" },
-    { icon: Icon6, label: "İçecekler" },
+    { icon: Icon6, label: "Soft Drinks" },
   ];
 
   return (

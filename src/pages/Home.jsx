@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import image from "../../Assets/mile1-assets/home-banner.png";
 import { Link } from "react-router-dom";
 import Category from "../components/UI/category/Category";
@@ -11,6 +11,7 @@ import Icon3 from "../../Assets/mile2-aseets/icons/3.svg";
 import Icon4 from "../../Assets/mile2-aseets/icons/4.svg";
 import Icon5 from "../../Assets/mile2-aseets/icons/5.svg";
 import products from "../assets/data/products";
+import ProductCard from "../../src/components/UI/productCard/ProductCard";
 
 const featureData = [
   {
@@ -31,7 +32,34 @@ const featureData = [
 ];
 
 const Home = () => {
-  const [allProducts, setAllProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState(products);
+  const [hotPizza, setHotPizza] = useState([]);
+  const [category, setCategory] = useState("HEPSİ");
+
+  useEffect(() => {
+    const filteredPizza = products.filter((item) => item.category === "Pizza");
+    const slicePizza = filteredPizza.slice(0, 4);
+    setHotPizza(slicePizza);
+  }, []);
+
+  useEffect(() => {
+    const categoryMap = {
+      HEPSİ: () => products,
+      BURGER: () => products.filter((item) => item.category === "Burger"),
+      PIZZA: () => products.filter((item) => item.category === "Pizza"),
+      RAMEN: () => products.filter((item) => item.category === "Ramen"),
+      "FRENCH FRIES": () =>
+        products.filter((item) => item.category === "French Fries"),
+      "FAST FOOD": () =>
+        products.filter((item) => item.category === "Fast Food"),
+      "SOFT DRINKS": () =>
+        products.filter((item) => item.category === "Soft Drinks"),
+    };
+
+    const filterFunction =
+      categoryMap[category.toUpperCase()] || categoryMap["HEPSİ"];
+    setAllProducts(filterFunction());
+  }, [category]);
 
   return (
     <>
@@ -50,13 +78,13 @@ const Home = () => {
             Teknolojik Lezzetler
           </h1>
           <div className="flex flex-col text-center mt-6">
-            <span className="text-[#FDC913] text-3xl font-satisfty">
+            <span className="text-[#FDC913] text-3xl font-satisfy">
               Fırsatı Kaçırma
             </span>
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfy">
               KOD ACIKTIRIR
             </h1>
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfy">
               PİZZA DOYURUR
             </h1>
             <div className="mt-6">
@@ -76,7 +104,7 @@ const Home = () => {
       <Category />
 
       <section className="py-10">
-        <div className="container mx-auto font-quattrocento font-bold">
+        <div className="container mx-auto font-quattrocento font-bold px-4">
           <div className="text-center">
             <h5 className="text-red-600 mb-4">Ne Sunuyoruz?</h5>
             <h2 className="text-2xl lg:text-3xl font-bold">
@@ -93,11 +121,11 @@ const Home = () => {
               tanımlıyoruz!
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 mt-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6 mt-8">
             {featureData.map((item, index) => (
               <div
                 key={index}
-                className="p-4 text-center bg-white rounded-lg shadow-md"
+                className="p-6 text-center bg-white rounded-lg shadow-md"
               >
                 <img
                   src={item.imgUrl}
@@ -113,9 +141,9 @@ const Home = () => {
       </section>
 
       <section className="py-10">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-6">
-            <h1 className="font-satisfty font-bold text-[#CE2829]">
+            <h1 className="font-satisfy font-bold text-[#CE2829]">
               En çok paketlenen menüler
             </h1>
             <h1 className="font-quattrocento">
@@ -124,31 +152,60 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col items-center font-roboto-condensed font-bold">
-            <div className="flex flex-wrap justify-center gap-4 text-black mt-6 py-4  rounded-lg">
-              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
+            <div className="flex flex-wrap justify-center gap-4 text-black mt-6 py-4 rounded-lg">
+              <button
+                onClick={() => setCategory("HEPSİ")}
+                className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200"
+                aria-label="Tüm kategorileri göster"
+              >
                 Hepsi
               </button>
-              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
-                <img src={Icon} alt="Ramen" className="w-5 h-5 mr-2" />
+              <button
+                onClick={() => setCategory("RAMEN")}
+                className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200"
+                aria-label="Ramen kategorisini göster"
+              >
+                <img src={Icon} alt="" className="w-5 h-5 mr-2" />
                 Ramen
               </button>
-              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
-                <img src={Icon2} alt="Burger" className="w-5 h-5 mr-2" />
+              <button
+                onClick={() => setCategory("BURGER")}
+                className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200"
+                aria-label="Burger kategorisini göster"
+              >
+                <img src={Icon2} alt="" className="w-5 h-5 mr-2" />
                 Burger
               </button>
-              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
-                <img src={Icon3} alt="French Fries" className="w-5 h-5 mr-2" />
+              <button
+                onClick={() => setCategory("FRENCH FRIES")}
+                className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200"
+                aria-label="French Fries kategorisini göster"
+              >
+                <img src={Icon3} alt="" className="w-5 h-5 mr-2" />
                 French Fries
               </button>
-              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
-                <img src={Icon4} alt="Fast Food" className="w-5 h-5 mr-2" />
+              <button
+                onClick={() => setCategory("FAST FOOD")}
+                className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200"
+                aria-label="Fast Food kategorisini göster"
+              >
+                <img src={Icon4} alt="" className="w-5 h-5 mr-2" />
                 Fast Food
               </button>
-              <button className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200">
-                <img src={Icon5} alt="Soft Drinks" className="w-5 h-5 mr-2" />
+              <button
+                onClick={() => setCategory("SOFT DRINKS")}
+                className="flex items-center bg-white text-black border rounded-md px-4 py-2 hover:bg-gray-200"
+                aria-label="Soft Drinks kategorisini göster"
+              >
+                <img src={Icon5} alt="" className="w-5 h-5 mr-2" />
                 Soft Drinks
               </button>
             </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {allProducts.map((item) => (
+              <ProductCard key={item.id} item={item} />
+            ))}
           </div>
         </div>
       </section>

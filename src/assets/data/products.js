@@ -1,4 +1,4 @@
-import BaconCheeseburger from "../../../Assets/mile2-aseets/images/Bacon-Cheeseburger.jpg"
+import BaconCheeseburger from "../../../Assets/mile2-aseets/images/BaconCheeseburger.jpg"
 import BBQChickenPizza from "../../../Assets/mile2-aseets/images/BBQ-Chicken-Pizza.jpg"
 import CheesyFrenchFries from "../../../Assets/mile2-aseets/images/Cheesy-French-Fries.jpg"
 import ChickenTenders from "../../../Assets/mile2-aseets/images/ChickenTenders.jpg"
@@ -25,7 +25,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     id: 1,
     title: "Pepperoni Pizza",
     price: 12.99,
-    img: Pepperoni,
+    img: "../../../Assets/mile2-aseets/images/pepperoni.jpg",
     category: "Pizza",
     description: "Sade bir pepperoni ile kaplanmış klasik pizza ve erimiş mozarella peyniri."
   },
