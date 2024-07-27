@@ -37,13 +37,12 @@ export default function SimpleSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000); // Change slide every 3 seconds
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    }, 3000);
+    return () => clearInterval(interval);
   }, [currentIndex]);
 
   return (
     <div className="relative w-full max-w-4xl mx-auto overflow-hidden mt-5">
-      {/* Slider */}
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -69,7 +68,6 @@ export default function SimpleSlider() {
         ))}
       </div>
 
-      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2  text-white p-2 rounded-full"
