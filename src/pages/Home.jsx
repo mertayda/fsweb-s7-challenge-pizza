@@ -298,7 +298,7 @@ const Home = () => {
               </div>
             </div>
             <div className="w-full md:w-1/2 px-4">
-              <img className="w-full " src={network}></img>
+              <img className="w-full  " src={network}></img>
             </div>
           </div>
         </div>
