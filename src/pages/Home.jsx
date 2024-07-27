@@ -13,6 +13,8 @@ import Icon5 from "../../Assets/mile2-aseets/icons/5.svg";
 import products from "../assets/data/products";
 import ProductCard from "../../src/components/UI/productCard/ProductCard";
 import delivery from "../../src/assets/images/location.png";
+import SimpleSlider from "../components/UI/Slider/SimpleSlider";
+import network from "../../src/assets/images/network.png";
 
 const featureData = [
   {
@@ -221,10 +223,10 @@ const Home = () => {
           </div>
           <div className="flex flex-col justify-center space-y-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 mb-4">
-                Neden Teknolojik Lezzetler
+              <h1 className="text-3xl font-bold text-gray-800 mb-4  font-satisfty">
+                Neden Teknolojik Lezzetler?
               </h1>
-              <p className="text-gray-600">
+              <p className="text-gray-600 font-quattrocento">
                 Teknolojik Lezzetler olarak, her zaman en taze ve en kaliteli
                 malzemeleri kullanıyoruz. Modern ekipmanlarımız sayesinde,
                 malzemelerimiz bozulmadan ve lezzetini kaybetmeden yemeklerinize
@@ -236,10 +238,10 @@ const Home = () => {
               <div className="flex items-start space-x-3">
                 <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
                 <div>
-                  <p className="text-lg font-semibold text-gray-800">
+                  <p className="text-lg font-semibold text-gray-800 font-satisfty">
                     Taze ve Kaliteli Ürünler
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 font-roboto-condensed">
                     "Her lokmada tazelik patlaması! Doğadan sofrana en kısa
                     yoldan gelen, taptaze malzemelerle hazırlanan
                     lezzetlerimizle mideni şenlendir. Hamburgerimizdeki köfteler
@@ -250,10 +252,10 @@ const Home = () => {
               <div className="flex items-start space-x-3">
                 <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
                 <div>
-                  <p className="text-lg font-semibold text-gray-800">
+                  <p className="text-lg font-semibold text-gray-800 font-satisfty">
                     Canlı Müşteri Desteği
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 font-roboto-condensed">
                     Her zaman yanınızdayız! Siparişlerinizle ilgili herhangi bir
                     sorunuz veya öneriniz olduğunda, 7/24 ulaşabileceğiniz
                     müşteri destek ekibimiz size yardımcı olmaktan mutluluk
@@ -264,10 +266,10 @@ const Home = () => {
               <div className="flex items-start space-x-3">
                 <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
                 <div>
-                  <p className="text-lg font-semibold text-gray-800">
+                  <p className="text-lg font-semibold text-gray-800 font-satisfty">
                     Heryerden Sipariş Verin
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 font-roboto-condensed">
                     İş yerinde, evde veya yolda... İstediğiniz her yerden
                     siparişinizi verebilirsiniz. Mobil uygulamamız veya web
                     sitemiz üzerinden kolayca siparişinizi oluşturun ve
@@ -275,6 +277,28 @@ const Home = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-10">
+        <div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
+            <div className="w-full md:w-1/2 px-4">
+              <div className="flex flex-col">
+                <h5 className="text-red-500 mb-4"> Referanslarımız </h5>
+                <h1 class="mb-4 font-satisfty">
+                  Müşterilermiz <span class="text-red-500">Ne</span> diyor?
+                </h1>
+                <h4 className="text-gray-600 mb-4 font-quattrocento italic">
+                  Kalitemizden ödün vermeden ürettiğimiz ürünlerimizi
+                  müşterilerimiz de çok seviyor.
+                </h4>
+                <SimpleSlider></SimpleSlider>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 px-4">
+              <img className="w-full " src={network}></img>
             </div>
           </div>
         </div>
