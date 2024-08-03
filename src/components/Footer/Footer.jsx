@@ -4,10 +4,10 @@ import logo from "../../../Assets/mile1-assets/logo.webp";
 const Footer = () => {
   return (
     <>
-      <footer className="flex  justify-center items-center mt-auto bg-gray-900 w-full dark:bg-neutral-950 sm:pl-8  font-roboto-condensed">
+      <footer className="flex flex-col justify-center items-center mt-auto bg-gray-900 w-full dark:bg-neutral-950 font-roboto-condensed text-gray-400">
         <div className="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            <div className="flex flex-col gap-4">
+          <div className="flex flex-col  gap-3 lg:flex-row  md:justify-between  items-center  mx-auto  md:items-start ">
+            <div className="flex flex-col  gap-4">
               <img src={logo} className="w-24" alt="Logo" />
               <a
                 className="flex-none text-xl font-semibold text-white focus:outline-none focus:opacity-80"
@@ -37,14 +37,7 @@ const Footer = () => {
                     Pizzalar
                   </a>
                 </p>
-                <p>
-                  <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-                    href="#"
-                  >
-                    Soslar
-                  </a>
-                </p>
+                <p></p>
                 <p>
                   <a
                     className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
@@ -72,9 +65,9 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <div className="flex flex-col  ">
               <h4 className="font-semibold text-gray-100">Kurumsal</h4>
-              <div className="mt-3 grid space-y-3">
+              <div className="mt-3 flex flex-col  ">
                 <p>
                   <a
                     className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
@@ -98,9 +91,6 @@ const Footer = () => {
                   >
                     Kariyer Fırsatları
                   </a>{" "}
-                  <span className="inline-block ms-1 text-xs bg-blue-700 text-white py-1 px-2 rounded-lg">
-                    İnsan Kaynakları
-                  </span>
                 </p>
                 <p>
                   <a
