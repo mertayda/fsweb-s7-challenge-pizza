@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import products from "../assets/data/products";
 import CommonSection from "../components/UI/commonSection/CommonSection";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addItem } from "../store/shopping-card/cartSlice";
 
 const AllFood = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   const categories = ["All", ...new Set(products.map((item) => item.category))];
 
@@ -85,18 +91,18 @@ const AllFood = () => {
                 </p>
               </div>
               <div className="mt-auto flex border-t border-gray-200">
-                <a
+                <button
+                  onClick={() => dispatch(addItem(item))}
                   className="w-1/2 py-3 px-4 inline-flex justify-center items-center text-sm font-medium bg-white text-blue-600 hover:bg-blue-50 transition-colors duration-300"
-                  href="#"
                 >
                   Sepete Ekle
-                </a>
-                <a
+                </button>
+                <button
                   className="w-1/2 py-3 px-4 inline-flex justify-center items-center text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
                   href="#"
                 >
                   Ürünü Göster
-                </a>
+                </button>
               </div>
             </div>
           ))}

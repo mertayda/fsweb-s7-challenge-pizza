@@ -20,7 +20,7 @@ const featureData = [
   {
     title: "Hızlı Teslimat",
     imgUrl: featureImg01,
-    desc: "Siparişiniz, sıcak ve taze olarak kapınıza gelsin diye hızlı bir şekilde hazırlanıyor..",
+    desc: "Siparişiniz, sıcak ve taze olarak kapınıza gelsin diye hızlı bir şekilde hazırlanıyor.",
   },
   {
     title: "Süper Lezzet",
@@ -109,11 +109,11 @@ const Home = () => {
       <section className="py-10">
         <div className="container mx-auto font-quattrocento font-bold px-4">
           <div className="text-center">
-            <h5 className="text-red-600 mb-4">Ne Sunuyoruz?</h5>
-            <h2 className="text-2xl lg:text-3xl font-bold">
+            <h5 className="text-red-600 mb-4 font-satisfty">Ne Sunuyoruz?</h5>
+            <h2 className="text-2xl lg:text-3xl font-bold font-satisfty">
               Evde Dinlenirken, Lezzeti Kapınıza Getirelim!
             </h2>
-            <h2 className="text-2xl lg:text-3xl font-bold">
+            <h2 className="text-2xl lg:text-3xl font-bold font-satisfty">
               Acıktınız mı? <span className="text-red-600">Biz hallederiz</span>
             </h2>
             <p className="mb-1 mt-4 text-gray-600 px-4 lg:px-0">
@@ -135,7 +135,7 @@ const Home = () => {
                   alt={item.title}
                   className="w-24 h-24 mx-auto mb-3"
                 />
-                <h5 className="font-bold mb-3">{item.title}</h5>
+                <h5 className="font-bold mb-3 font-satisfty">{item.title}</h5>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -146,7 +146,7 @@ const Home = () => {
       <section className="py-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6">
-            <h1 className="font-satisfy font-bold text-[#CE2829]">
+            <h1 className="font-satisfty font-bold text-[#CE2829]">
               En çok paketlenen menüler
             </h1>
             <h1 className="font-quattrocento">
