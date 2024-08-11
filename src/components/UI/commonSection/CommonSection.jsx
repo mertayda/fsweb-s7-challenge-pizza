@@ -7,7 +7,7 @@ const CommonSection = (props) => {
       <img
         src={banner}
         alt="banner"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover absolute"
       ></img>
       <div className="absolute inset-0 flex items-center  bg-black bg-opacity-50">
         <div className="container">

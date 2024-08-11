@@ -3,7 +3,7 @@ import logo from "../../../Assets/mile1-assets/logo.webp";
 import { Link, NavLink } from "react-router-dom";
 import "remixicon/fonts/remixicon.css";
 import { useSelector, useDispatch } from "react-redux";
-import { cartUiActions } from "../../store/shopping-card/cartUiSlice";
+import { cartUiActions } from "../../store/shopping-card/cartUiSlice.js";
 
 const navLinks = [
   {
@@ -29,6 +29,7 @@ const Header = () => {
   const headerRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
   const dispatch = useDispatch();
 
   const toggleMenu = () => {
@@ -53,12 +54,29 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setMenuOpen(true);
+      } else {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <header
       className="bg-[#FDC913] py-4 transition-shadow duration-300"
       ref={headerRef}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div
+        ref={menuRef}
+        className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between"
+      >
         <Link to="/">
           <img src={logo} alt="Company Logo" className="object-cover w-56" />
         </Link>
@@ -78,16 +96,15 @@ const Header = () => {
           ))}
         </nav>
         <div className="flex items-center space-x-4">
-          <button
-            className="relative cursor-pointer"
-            aria-label="Shopping Basket"
-            onClick={toggleCart}
-          >
+          <div className="relative cursor-pointer" aria-label="Shopping Basket">
             <i className="ri-shopping-basket-line text-white text-2xl"></i>
-            <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+            <span
+              onClick={toggleCart}
+              className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"
+            >
               {totalQuantity}
             </span>
-          </button>
+          </div>
           <Link
             to="/login"
             aria-label="User Login"
@@ -95,41 +112,24 @@ const Header = () => {
           >
             <i className="ri-user-follow-fill text-2xl"></i>
           </Link>
-          <button
-            className="sm:hidden text-white focus:outline-none"
-            aria-label="Toggle Mobile Menu"
-            onClick={toggleMenu}
-          >
-            <i className="ri-menu-line text-2xl"></i>
-          </button>
         </div>
       </div>
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-y-0 left-0 w-1/2 bg-white shadow-md transform transition-transform duration-300 ease-in-out ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 right-0 bg-white w-1/4 h-screen p-4 transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-end p-4">
-          <button
-            className="text-white focus:outline-none"
-            aria-label="Close Mobile Menu"
-            onClick={toggleMenu}
-          >
-            <i className="ri-close-line text-2xl"></i>
-          </button>
-        </div>
-        <nav className="flex flex-col p-4">
+        <nav className="flex flex-col items-center gap-5 font-satisfty text-2xl">
           {navLinks.map((item, index) => (
             <NavLink
               to={item.path}
               key={index}
               className={({ isActive }) =>
-                `block px-4 py-2 text-gray-800 hover:text-red-500 font-satisfty text-2xl transition-colors duration-300 ${
+                `text-gray-800 hover:text-red-500 transition-colors duration-300 ${
                   isActive ? "text-red-500" : ""
                 }`
               }
-              onClick={toggleMenu}
             >
               {item.display}
             </NavLink>
