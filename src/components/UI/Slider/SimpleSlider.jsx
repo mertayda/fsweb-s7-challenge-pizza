@@ -6,18 +6,18 @@ import ava3 from "../../../../Assets/mile1-assets/images/ava-3.jpg";
 const slides = [
   {
     image: ava1,
-    text: "Ramen ve Pizzaları Müthiş Lezzetli ve Siparişleri Yetiştirmede İnanılmaz Hızlılar",
-    name: "Joe Doe",
+    text: "Their ramen and pizzas are incredibly delicious, and they deliver orders at an astonishing speed.",
+    name: "Toby Charles",
   },
   {
     image: ava2,
-    text: "Vazgeçemediğim Tek Lezzet",
-    name: "Jane Doe",
+    text: "My go-to place for an unbeatable taste.",
+    name: "Sarah Johnson",
   },
   {
     image: ava3,
-    text: "Harika bir Lezzet.",
-    name: "John Doe",
+    text: "An amazing taste experience.",
+    name: "Marcus Davis",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function SimpleSlider() {
           <div key={index} className="w-full flex-shrink-0">
             <div className="flex flex-row   content-center gap-6 sm:gap-10">
               <img
-                class="inline-block size-12 rounded-full "
+                className="inline-block size-12 rounded-full "
                 src={slide.image}
                 alt="Avatar"
               ></img>

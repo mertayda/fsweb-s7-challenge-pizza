@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../../store/shopping-card/cartSlice.js";
 import { Link } from "react-router-dom";
-
 const ProductCard = (props) => {
   const dispatch = useDispatch();
   const { id, title, img, price, description } = props.item;
@@ -23,7 +22,10 @@ const ProductCard = (props) => {
       </div>
       <div className="p-6">
         <h5 className="text-xl font-semibold mb-2">
-          <Link to={`/`} className="text-gray-800 hover:text-red-500">
+          <Link
+            to={`/foods/${id}`}
+            className="text-gray-800 hover:text-red-500"
+          >
             {title}
           </Link>
         </h5>

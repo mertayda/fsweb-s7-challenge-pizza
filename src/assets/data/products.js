@@ -20,14 +20,14 @@ import VeggieRamen from "../../../Assets/mile2-aseets/images/VeggieRamen.jpg"
 import ShrimpTacos from "../../../Assets/mile2-aseets/images/ShrimpTacos.jpg"
 import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
 
- const products = [
+const products = [
   {
     id: 1,
     title: "Pepperoni Pizza",
     price: 12.99,
     img: "../../../Assets/mile2-aseets/images/pepperoni.jpg",
     category: "Pizza",
-    description: "Sade bir pepperoni ile kaplanmış klasik pizza ve erimiş mozarella peyniri."
+    description: "A classic pizza topped with pepperoni and melted mozzarella cheese."
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 10.99,
     img: VeggieRamen,
     category: "Ramen",
-    description: "Taze sebzeler ve lezzetli bir et suyu ile dolu bir ramen kasesi."
+    description: "A bowl of ramen filled with fresh vegetables and a savory broth."
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 5.99,
     img: CheesyFrenchFries,
     category: "French Fries",
-    description: "Eriyen cheddar peyniri ile kaplı çıtır patates kızartmaları, yanına ranch sos ile servis edilir."
+    description: "Crispy French fries topped with melted cheddar cheese and served with a side of ranch dressing."
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 7.99,
     img: ChickenTenders,
     category: "Fast Food",
-    description: "Ayrı sos seçeneği ile servis edilen çıtır tavuk şeritleri."
+    description: "Crispy chicken strips served with a side of your choice of sauce."
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 11.99,
     img: BaconCheeseburger,
     category: "Burger",
-    description: "Kıtır bacon, erimiş cheddar peyniri, marul, domates ve soğan ile kaplanmış sulu hamburger."
+    description: "A juicy burger topped with crispy bacon, melted cheddar cheese, lettuce, tomato, and onion."
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 11.99,
     img: MargheritaPizza,
     category: "Pizza",
-    description: "Taze mozzarella, domates ve fesleğen ile kaplanmış basit ama lezzetli pizza."
+    description: "A classic pizza topped with fresh mozzarella, tomato, and basil."
   },
   {
     id: 7,
@@ -75,7 +75,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 11.99,
     img: SpicyMisoRamen,
     category: "Ramen",
-    description: "Zengin miso suyu, taze sebzeler ve bir miktar baharat içeren baharatlı bir ramen."
+    description: "A spicy and savory ramen filled with fresh vegetables and a rich miso broth."
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 5.99,
     img: GarlicPermesanFries,
     category: "French Fries",
-    description: "Sarımsak yağına bulanmış çıtır patates kızartmaları ve rendelenmiş Parmesan peyniri ile üstü kaplanmıştır."
+    description: "Crispy French fries tossed in garlic butter and topped with grated Parmesan cheese."
   },
   {
     id: 9,
@@ -91,7 +91,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 10.99,
     img: FishandChips,
     category: "Fast Food",
-    description: "Yanında çıtır patates kızartması ve tartar sosu ile servis edilen çıtır bira kaplamalı balık."
+    description: "Crispy beer-battered fish served with a side of crispy French fries and tartar sauce."
   },
   {
     id: 10,
@@ -99,7 +99,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 10.99,
     img: VeggieBurger,
     category: "Burger",
-    description: "Marul, domates, soğan ve sos seçeneği ile kaplanmış lezzetli sebze köftesi."
+    description: "A flavorful veggie burger topped with lettuce, tomato, onion, and your choice of sauce."
   },
   {
     id: 11,
@@ -107,7 +107,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 13.99,
     img: BBQChickenPizza,
     category: "Pizza",
-    description: "BBQ sosu, ızgara tavuk, kırmızı soğan ve kişniş ile kaplanmış lezzetli pizza."
+    description: "A pizza topped with BBQ sauce, grilled chicken, red onion, and cilantro."
   },
   {
     id: 12,
@@ -115,7 +115,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 12.99,
     img: TonkotsuRamen,
     category: "Ramen",
-    description: "Yumuşak haşlanmış yumurta, tender domuz pastırması ve yeşil soğan ile birlikte zengin ve kremsi domuz kemiği suyu ramen."
+    description: "A rich and creamy ramen filled with tender pork, boiled egg, and green onion."
   },
   {
     id: 13,
@@ -123,7 +123,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 6.99,
     img: ChiliCheeseFries,
     category: "French Fries",
-    description: "Tadıyla zengin chili ile kaplanmış çıtır patates kızartmaları ve eritilmiş cheddar peyniri ile hazırlanmıştır."
+    description: "Crispy French fries topped with a rich chili and melted cheddar cheese."
   },
   {
     id: 14,
@@ -131,7 +131,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 9.99,
     img: GrilledChickenSalad,
     category: "Fast Food",
-    description: "Izgara tavuk, karışık yeşillikler, domates, salatalık ve seçtiğiniz sos ile taze ve sağlıklı bir salata."
+    description: "A fresh salad topped with grilled chicken, mixed greens, tomato, cucumber, and your choice of dressing."
   },
   {
     id: 15,
@@ -139,7 +139,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 12.99,
     img: MushroomSwissBurger,
     category: "Burger",
-    description: "Sauté edilmiş mantar, erimiş İsviçre peyniri, marul, domates ve soğan ile kaplanmış sulu hamburger."
+    description: "A juicy burger topped with sautéed mushrooms, melted Swiss cheese, lettuce, tomato, and onion."
   },
   {
     id: 16,
@@ -147,7 +147,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 12.99,
     img: HawainPizza,
     category: "Pizza",
-    description: "Biftek, ananas ve erimiş mozarella peyniri ile kaplanmış tatlı ve tuzlu pizza."
+   description: "A pizza topped with ham, pineapple, and melted mozzarella cheese."
   },
   {
     id: 17,
@@ -155,7 +155,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 11.99,
     img: ShioRamen,
     category: "Ramen",
-    description: "Açık tuzlu et suyu, taze sebzeler ve tender tavuk ile hazırlanan hafif ve lezzetli ramen."
+    description: "A light and flavorful ramen filled with fresh vegetables and a clear broth."
   },
   {
     id: 18,
@@ -163,7 +163,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 7.99,
     img: LoadedNachos,
     category: "French Fries",
-    description: "Eritilmiş peynir, baharatlı kıyma, pico de gallo, ekşi krema ve jalapeño ile kaplanmış çıtır tortilla cipsleri."
+    description: "Crispy tortilla chips topped with melted cheese, spicy ground beef, pico de gallo, sour cream, and jalapeño."
   },
   {
     id: 19,
@@ -171,7 +171,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 11.99,
     img: ShrimpTacos,
     category: "Fast Food",
-    description: "Taze lahana, pico de gallo ve baharatlı limon kreması ile sıcak tortillalarda servis edilen ızgara karides."
+    description: "Grilled shrimp served in a warm tortilla with fresh cabbage, pico de gallo, and a spicy lime crema."
   },
   {
     id: 20,
@@ -179,7 +179,7 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 1.99,
     img: CocoCola,
     category: "Soft Drinks",
-    description: "Serinletici bir tada sahip klasik karbonatlı içecek."
+    description: "A classic carbonated beverage with a refreshing taste."
   },
   {
     id: 21,
@@ -187,9 +187,8 @@ import Sprite from "../../../Assets/mile2-aseets/images/Sprite.jpg"
     price: 1.99,
     img: Sprite,
     category: "Soft Drinks",
-    description: "Kıtır ve ferahlatıcı bir limon-lime tatlı karbonatlı içecek."
+    description: "A crisp and refreshing lemon-lime flavored carbonated beverage."
   }
 ];
-
 
 export default products;

@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const Layout = () => {
   const showCart = useSelector((state) => state.cartUi.cartIsVisible);
   return (
-    <div>
+    <div className=" flex flex-col overflow-x-hidden">
       <Header></Header>
       {showCart && <Carts></Carts>}
       <Routers></Routers>
