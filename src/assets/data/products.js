@@ -11,7 +11,7 @@ import HawainPizza from "../../../Assets/mile2-aseets/images/HawaianPizza.jpg"
 import LoadedNachos from "../../../Assets/mile2-aseets/images/LoadedNachos.jpg"
 import MargheritaPizza from "../../../Assets/mile2-aseets/images/MargheritaPizza.jpg"
 import MushroomSwissBurger from "../../../Assets/mile2-aseets/images/MushroomSwissBurger.jpg"
-import Pepperoni from "../../../Assets/mile2-aseets/images/pepperoni.jpg"
+import Pepperoni from "../../../Assets/mile2-aseets/images/Pepperoni.jpg"
 import ShioRamen from "../../../Assets/mile2-aseets/images/ShioRamen.jpg"
 import  SpicyMisoRamen from "../../../Assets/mile2-aseets/images/SpicyMisoRamen.jpg"
 import TonkotsuRamen from "../../../Assets/mile2-aseets/images/Tonkotsu-Ramen.jpg"
@@ -25,7 +25,7 @@ const products = [
     id: 1,
     title: "Pepperoni Pizza",
     price: 12.99,
-    img: "../../../Assets/mile2-aseets/images/pepperoni.jpg",
+    img: Pepperoni,
     category: "Pizza",
     description: "A classic pizza topped with pepperoni and melted mozzarella cheese."
   },

@@ -49,17 +49,17 @@ export default function SimpleSlider() {
       >
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex-shrink-0">
-            <div className="flex flex-row   content-center gap-6 sm:gap-10">
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
               <img
-                className="inline-block size-12 rounded-full "
+                className="inline-block w-24 h-24 rounded-full object-cover"
                 src={slide.image}
                 alt="Avatar"
-              ></img>
-              <div className="w-full  lg:w-1/2 flex flex-col justify-center ">
-                <blockquote className=" text-lg font-medium text-gray-900 font-quattrocento italic">
+              />
+              <div className="w-full lg:w-1/2 flex flex-col justify-center text-center sm:text-left">
+                <blockquote className="text-lg sm:text-xl font-medium text-gray-900 font-quattrocento italic">
                   " {slide.text} "
                 </blockquote>
-                <p className=" text-lg font-semibold text-gray-800 font-satisfty">
+                <p className="text-base sm:text-lg font-semibold text-gray-800 font-satisfty">
                   "{slide.name} "
                 </p>
               </div>
@@ -70,13 +70,13 @@ export default function SimpleSlider() {
 
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2  text-white p-2 rounded-full"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors duration-300 hidden"
       >
         &lt;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2  text-white p-2 rounded-full"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors duration-300 hidden"
       >
         &gt;
       </button>

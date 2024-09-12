@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { CheckCircleIcon } from "lucide-react";
 import image from "../../Assets/mile1-assets/home-banner.png";
 import { Link } from "react-router-dom";
 import Category from "../components/UI/category/Category";
@@ -41,25 +41,6 @@ const Home = () => {
   const [allProducts, setAllProducts] = useState(products);
 
   const [category, setCategory] = useState("ALL");
-
-  useEffect(() => {
-    const categoryMap = {
-      ALL: () => products,
-      BURGER: () => products.filter((item) => item.category === "Burger"),
-      PIZZA: () => products.filter((item) => item.category === "Pizza"),
-      RAMEN: () => products.filter((item) => item.category === "Ramen"),
-      "FRENCH FRIES": () =>
-        products.filter((item) => item.category === "French Fries"),
-      "FAST FOOD": () =>
-        products.filter((item) => item.category === "Fast Food"),
-      "SOFT DRINKS": () =>
-        products.filter((item) => item.category === "Soft Drinks"),
-    };
-
-    const filterFunction =
-      categoryMap[category.toUpperCase()] || categoryMap["ALL"];
-    setAllProducts(filterFunction());
-  }, [category]);
 
   useEffect(() => {
     const categoryMap = {
@@ -169,42 +150,40 @@ const Home = () => {
     );
   }, []);
   return (
-    <div className="container flex flex-col">
+    <div className=" flex flex-col ">
       <div
-        className="w-full h-screen flex flex-col text-white "
+        className="relative w-full h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundColor: "#CE2829",
         }}
       >
-        <div className="flex flex-col items-center justify-center bg-opacity-90 p-5 rounded-lg mt-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-quattrocento font-semibold text-center">
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+        <div className="relative z-10 text-white text-center px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-quattrocento font-bold mb-6">
             Teknolojik Lezzetler
           </h1>
-          <div className="flex flex-col text-center mt-6">
-            <span className="text-[#FDC913] text-3xl font-quattrocento">
+
+          <div className="space-y-4">
+            <p className="text-[#FDC913] text-2xl sm:text-3xl font-quattrocento font-semibold">
               Don't Miss Out
-            </span>
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
+            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-satisfty font-bold">
               THE CODE IS LIVE
-            </h1>
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-satisfty">
+            </h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-satisfty font-bold">
               PIZZA SATISFACTION GUARANTEED
-            </h1>
-            <div className="mt-6">
-              <Link to="/order">
-                <button
-                  type="button"
-                  className="py-2 px-8 font-satisfty inline-flex items-center gap-x-2 text-md font-semibold rounded-3xl border border-transparent bg-[#FDC913] text-black hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none"
-                >
-                  JOIN US
-                </button>
-              </Link>
-            </div>
+            </h2>
           </div>
+
+          <Link to="/register" className="inline-block mt-8">
+            <button
+              type="button"
+              className="py-3 px-8 font-satisfty text-lg font-semibold rounded-full bg-[#FDC913] text-black hover:bg-yellow-500 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
+            >
+              JOIN US
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -320,65 +299,60 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full mt-4 bg-gray-100 p-3 max-h-max">
-        <div className="max-w-6xl  mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div>
-            <img
-              src={delivery}
-              className="object-cover w-full h-full "
-              alt="Delivery Image"
-            />
-          </div>
-          <div className="flex flex-col justify-center space-y-6  ">
-            <h1 className="text-3xl font-bold text-gray-800 mb-4  font-satisfty">
-              Why Choose Teknolojik Lezzetler?
-            </h1>
-            <p className="text-gray-600 font-quattrocento">
-              At Teknolojik Lezzetler, we prioritize the use of the freshest and
-              highest quality ingredients. With our state-of-the-art equipment,
-              we ensure that your order arrives at your doorstep without
-              compromising on flavor or freshness. Enjoy the convenience of
-              fresh, delicious meals, anytime, anywhere.
-            </p>
-
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3 why-choose-item">
-                <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
-                <div>
-                  <p className="text-lg font-semibold text-gray-800 font-satisfty">
-                    Fresh and High-Quality Products
-                  </p>
-                  <p className="text-gray-600 font-roboto-condensed">
-                    Experience a burst of flavor in every bite. Our products are
-                    crafted with care, using the freshest ingredients from our
-                    own garden!
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3 why-choose-item">
-                <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
-                <div>
-                  <p className="text-lg font-semibold text-gray-800 font-satisfty">
-                    Live Customer Support
-                  </p>
-                  <p className="text-gray-600 font-roboto-condensed">
-                    Our dedicated 24/7 customer support team is here to assist
-                    you with any queries or feedback regarding your orders.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3 why-choose-item">
-                <i className="ri-checkbox-circle-line text-green-500 text-2xl"></i>
-                <div>
-                  <p className="text-lg font-semibold text-gray-800 font-satisfty">
-                    Order from Anywhere
-                  </p>
-                  <p className="text-gray-600 font-roboto-condensed">
-                    Whether you're at work, home, or on the move, you can easily
-                    place your order through our mobile app or website, and have
-                    it delivered right to your location.
-                  </p>
-                </div>
+      <section className="w-full py-16 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <img
+                src={delivery}
+                className="object-cover w-full h-full rounded-lg shadow-md"
+                alt="Delivery Image"
+              />
+            </div>
+            <div className="order-1 lg:order-2 flex flex-col justify-center space-y-8">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 font-satisfty">
+                Why Choose Teknolojik Lezzetler?
+              </h2>
+              <p className="text-lg text-gray-600 font-quattrocento">
+                At Teknolojik Lezzetler, we prioritize the use of the freshest
+                and highest quality ingredients. With our state-of-the-art
+                equipment, we ensure that your order arrives at your doorstep
+                without compromising on flavor or freshness. Enjoy the
+                convenience of fresh, delicious meals, anytime, anywhere.
+              </p>
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Fresh and High-Quality Products",
+                    description:
+                      "Experience a burst of flavor in every bite. Our products are crafted with care, using the freshest ingredients from our own garden!",
+                  },
+                  {
+                    title: "Live Customer Support",
+                    description:
+                      "Our dedicated 24/7 customer support team is here to assist you with any queries or feedback regarding your orders.",
+                  },
+                  {
+                    title: "Order from Anywhere",
+                    description:
+                      "Whether you're at work, home, or on the move, you can easily place your order through our mobile app or website, and have it delivered right to your location.",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start space-x-4 why-choose-item"
+                  >
+                    <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-800 font-satisfty mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 font-roboto-condensed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

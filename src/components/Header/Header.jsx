@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { cartUiActions } from "../../store/shopping-card/cartUiSlice.js";
 import { Menu, X, ShoppingCart, User } from "lucide-react";
@@ -14,11 +14,26 @@ const navLinks = [
 const Header = () => {
   const menuRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleCart = () => dispatch(cartUiActions.toggle());
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -32,24 +47,28 @@ const Header = () => {
   }, [menuRef]);
 
   return (
-    <header className="bg-[#FDC913] p-4 shadow-md font-satisfty">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md py-2" : "bg-[#FDC913] py-4"
+      }`}
+    >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <img
             src={logo}
             alt="Company Logo"
-            className="h-14 w-72 object-contain"
+            className="h-10 w-32 sm:h-12 sm:w-36 md:h-14 md:w-40 object-contain"
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-6">
           {navLinks.map((item) => (
             <NavLink
               to={item.path}
               key={item.path}
               className={({ isActive }) =>
-                `text-gray-800 hover:text-red-500 transition-colors duration-300 text-lg font-medium ${
-                  isActive ? "text-red-500" : ""
+                `text-gray-800 hover:text-red-600 transition-colors duration-300 text-lg font-medium ${
+                  isActive ? "text-red-600" : ""
                 }`
               }
             >
@@ -66,7 +85,7 @@ const Header = () => {
           >
             <ShoppingCart className="text-gray-800 w-6 h-6" />
             {totalQuantity > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                 {totalQuantity}
               </span>
             )}
@@ -75,7 +94,7 @@ const Header = () => {
           <Link
             to="/login"
             aria-label="User Login"
-            className="text-gray-800 hover:text-red-500 transition-colors duration-300"
+            className="text-gray-800 hover:text-red-600 transition-colors duration-300"
           >
             <User className="w-6 h-6" />
           </Link>
@@ -114,8 +133,8 @@ const Header = () => {
               to={item.path}
               key={item.path}
               className={({ isActive }) =>
-                `text-gray-800 hover:text-red-500 transition-colors duration-300 text-lg font-medium ${
-                  isActive ? "text-red-500" : ""
+                `text-gray-800 hover:text-red-600 transition-colors duration-300 text-lg font-medium ${
+                  isActive ? "text-red-600" : ""
                 }`
               }
               onClick={toggleMenu}
